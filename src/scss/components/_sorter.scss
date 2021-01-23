@@ -1,0 +1,39 @@
+.sort {
+  margin-top: 2rem;
+  &__container {
+    width: 80%;
+    padding: 0 10px 0 10px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background: var(--white-main);
+    height: 70vh;
+    margin: 1.5rem auto;
+    border-radius: var(--radius);
+    background-size: 100%;
+  }
+  &__element {
+    width: 1%;
+    background: var(--secondary);
+    margin-right: 3px;
+  }
+  &__buttons {
+    width: 60%;
+    margin: 1rem auto 0 auto;
+    @include align-center();
+    justify-content: space-evenly;
+    display: none;
+  }
+  &__button {
+    border-radius: var(--radius);
+    padding: 5px 15px;
+    border: 1px solid var(--white-main);
+    background: none;
+    transition: var(--transition);
+    color: var(--white-main);
+  }
+  &__button:hover {
+    color: var(--black-main);
+    background: var(--white-main);
+  }
+}

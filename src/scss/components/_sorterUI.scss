@@ -1,0 +1,98 @@
+.sorterUI {
+  width: 80%;
+  margin: 1rem auto;
+  position: relative;
+  height: 70px;
+  &__menu {
+    @include align-center();
+    justify-content: space-evenly;
+  }
+  &__dropdown {
+    @include align-center();
+    padding: 5px;
+    position: relative;
+    p {
+      color: var(--white-main);
+      text-transform: capitalize;
+    }
+  }
+  &__notifications {
+    li {
+      margin-bottom: 0.25rem;
+      color: var(--primary-2);
+      font-size: 0.75rem;
+      span {
+        padding-left: 10px;
+        font-size: 0.65rem;
+        color: var(--green);
+      }
+      svg {
+        margin-left: 7px;
+        padding-top: 2px;
+      }
+    }
+  }
+  &__error {
+    color: var(--red);
+  }
+  &__success {
+    color: #80b918;
+  }
+  &__toggle {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--primary);
+    padding-top: 3px;
+    z-index: 2;
+  }
+  &__options {
+    position: absolute;
+    transition: var(--transition);
+    border-radius: var(--radius);
+    background: #434343;
+    padding: 5px;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  &__option {
+    text-align: left;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    border-radius: var(--radius);
+    background: transparent;
+    margin-bottom: 0.25rem;
+    text-transform: capitalize;
+    color: var(--primary);
+    z-index: 3;
+    transition: var(--transition);
+  }
+  &__option:hover {
+    background: var(--white-main);
+    color: var(--black-main);
+    transform: translateX(1px);
+  }
+  &__range {
+    position: absolute;
+    transform: rotate(-90deg);
+    width: 80px;
+    height: 5px;
+    left: 0;
+  }
+  &__range:focus + div {
+    color: var(--primary);
+  }
+  &__label {
+    position: absolute;
+    transition: var(--transition);
+    left: -19px;
+    top: 28px;
+    font-size: 0.75rem;
+    color: var(--white-main);
+    transform: rotate(-90deg);
+  }
+}
