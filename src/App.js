@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from './Navbar';
 import Sort from './Sort';
 import Error from './Error';
 import About from './About';
+import Footer from './Footer';
 import Algorythms from './Algorythms';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Error />
           </Route>
         </Switch>
+        <Footer />
       </Router>
     </>
   );

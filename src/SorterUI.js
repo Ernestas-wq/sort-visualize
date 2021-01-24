@@ -11,6 +11,17 @@ const SorterUI = ({ mergeSort, heapSort, bubbleSort, quickSort }) => {
     <>
       <section className="sorterUI">
         <div className="sorterUI__menu">
+          <div className="sorterUI__range">
+            <div>
+              <input
+                type="range"
+                id="range"
+                min="10"
+                max="90"
+                onChange={e => changeSize(e.target.value)}
+              />
+            </div>
+          </div>
           <Dropdown />
           <div className="sorterUI__notifications">
             <ul>
@@ -34,15 +45,6 @@ const SorterUI = ({ mergeSort, heapSort, bubbleSort, quickSort }) => {
           </div>
         </div>
 
-        <input
-          className="sorterUI__range"
-          type="range"
-          id="range"
-          onChange={e => changeSize(e.target.value)}
-        />
-        <div className="sorterUI__label">
-          <label htmlFor="range">Adjust array</label>
-        </div>
         <button
           // className="sorterUI__start sorterUI__start--inactive"
           className={`${
@@ -88,7 +90,10 @@ const Dropdown = () => {
             </button>
             <div
               className="sorterUI__options"
-              style={{ opacity: `${show ? '1' : '0'}`, top: `${show ? '26px' : '0'}` }}
+              style={{
+                transform: `${show ? 'translateY(25%)' : 'translateY(-100%)'}`,
+                opacity: `${show ? '1' : '0'}`,
+              }}
             >
               {options.map((option, index) => {
                 return (

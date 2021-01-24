@@ -42,3 +42,6 @@ a {
 button {
   cursor: pointer;
 }
+main {
+  min-height: calc(100vh - 50px - var(--nav-size));
+}

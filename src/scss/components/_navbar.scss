@@ -33,7 +33,6 @@
 
   &__links {
     overflow: hidden;
-    width: 25%;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -88,11 +87,6 @@
       color: var(--white-main);
     }
   }
-  //   &__link:hover {
-  //     @include responsive-sm() {
-  //       color: var(--primary);
-  //     }
-  //   }
   &__open {
     position: absolute;
     top: 10px;

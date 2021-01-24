@@ -1,0 +1,46 @@
+.footer {
+  height: 50px;
+  background: #0f0c29;
+  background: #000000;
+  background: -webkit-linear-gradient(to right, #000000, #434343);
+  background: linear-gradient(to right, #000000, #434343);
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__left {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__logo {
+    width: 20px;
+    height: 20px;
+  }
+  &__title {
+    p {
+      color: var(--white-main);
+      font-size: 0.5rem;
+    }
+    span {
+      color: #8338ec;
+    }
+    font-family: 'Hachi Maru Pop', cursive, sans-serif;
+  }
+  &__right {
+    a {
+      font-size: 0.65rem;
+      padding-bottom: 5px;
+      transition: var(--transition);
+    }
+    a:hover {
+      color: var(--primary);
+    }
+    svg {
+      color: var(--primary);
+      transform: translateY(2px);
+      margin-left: 4px;
+    }
+  }
+}

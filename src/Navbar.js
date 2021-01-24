@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { VscThreeBars } from 'react-icons/vsc';
 import { useGlobalContext } from './context';
 import { AiOutlineClose } from 'react-icons/ai';
@@ -49,47 +49,10 @@ const Newnb = () => {
               Algorythms
             </Link>
           </li>
-          {/* <NavItem icon={<PlusIcon />} />
-          <NavItem icon={<ArrowIcon />} />
-          <NavItem icon={<CogIcon />} /> */}
-
-          {/* <NavItem icon={<CaretIcon />}><DropdownMenu /></NavItem> */}
         </ul>
       </nav>
     </>
   );
 };
-
-const NavItem = props => {
-  const [open, setOpen] = useState(false);
-  return (
-    <li className="navbar__item">
-      <a href="#" className="navbar__link" onClick={() => setOpen(!open)}>
-        {/* {props.icon} */}
-        Testing
-      </a>
-      {/* {open && props.children} */}
-    </li>
-  );
-};
-
-// const DropdownMenu = () => {
-//   const DropdownItem = props => {
-//     return (
-//       <a href="#" className="menu-item">
-//         <span className="icon-button">{props.leftIcon}</span>
-//         {props.children}
-//         My Name
-//         <span className="icon-right">{props.rightIcon}</span>
-//       </a>
-//     );
-//   };
-
-//   return (
-//     <div className="dropdown">
-//       <DropdownItem leftIcon={<CogIcon />} rightIcon={<BoltIcon />}></DropdownItem>
-//     </div>
-//   );
-// };
 
 export default Newnb;

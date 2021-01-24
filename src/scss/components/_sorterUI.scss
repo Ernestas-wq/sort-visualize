@@ -4,8 +4,10 @@
   position: relative;
   height: 90px;
   &__menu {
-    @include align-center();
-    justify-content: flex-start;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-evenly;
 
     @include responsive-sm() {
       justify-content: space-evenly;
@@ -13,7 +15,11 @@
     }
   }
   &__dropdown {
-    @include align-center();
+    display: flex;
+    align-items: start;
+    justify-content: space-evenly;
+    height: 140px;
+    overflow: hidden;
     padding: 5px;
     position: relative;
     p {
@@ -23,20 +29,27 @@
   }
   &__notifications {
     position: absolute;
-    bottom: -30px;
-    left: 0;
+    bottom: -20px;
+    left: 5px;
+    z-index: 1;
     @include responsive-sm() {
-      position: static;
+      bottom: 20px;
     }
     li {
       margin-bottom: 0.25rem;
       color: var(--primary-2);
-      font-size: 0.75rem;
+      font-size: 0.5rem;
+      @include responsive-sm() {
+        font-size: 0.75rem;
+      }
       span {
         padding-left: 10px;
-        font-size: 0.65rem;
+        font-size: 0.4rem;
         text-transform: capitalize;
         color: var(--green);
+        @include responsive-sm() {
+          font-size: 0.65rem;
+        }
       }
       svg {
         margin-left: 7px;
@@ -60,15 +73,21 @@
   }
   &__start {
     position: absolute;
-    bottom: -10px;
-    right: 0;
+    bottom: -27px;
+    left: 70%;
     background: none;
     outline: none;
     border: 1px solid var(--primary);
     padding: 3px 15px;
     border-radius: 20px;
+    font-size: 0.5rem;
     color: var(--white-main);
     transition: var(--transition);
+    @include responsive-sm() {
+      bottom: -10px;
+      left: 45%;
+      font-size: 0.9rem;
+    }
     &--inactive {
       color: var(--red);
       background: #474a4d;
@@ -82,9 +101,8 @@
     position: absolute;
     transition: var(--transition);
     border-radius: var(--radius);
-    background: #434343;
-    padding: 5px;
-    opacity: 0;
+    padding: 5px 5px 5px 0;
+    transform: translateY(-100%);
     top: 0;
     left: 0;
     z-index: 3;
@@ -94,7 +112,7 @@
     width: 100%;
     border: none;
     outline: none;
-    font-size: 1rem;
+    font-size: 0.75rem;
     border-radius: var(--radius);
     background: transparent;
     margin-bottom: 0.25rem;
@@ -108,22 +126,53 @@
     color: var(--black-main);
     transform: translateX(1px);
   }
+
   &__range {
+    width: 150px;
     position: absolute;
-    transform: rotate(-90deg);
-    width: 60px;
-    height: 5px;
-    top: 25px;
-    right: 10px;
-    @include responsive-sm() {
-      width: 80px;
-      height: 5px;
-      left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 5;
+    div {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+    input {
+      -webkit-appearance: none; /* Override default CSS styles */
+      appearance: none;
+      width: 40%; /* Full-width */
+      height: 5px; /* Specified height */
+      background: var(--black-main); /* Grey background */
+      border-radius: var(--radius);
+      outline: none; /* Remove outline */
+      opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+      -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+      transition: opacity 0.2s;
+      @include responsive-sm() {
+        width: 70%;
+      }
+    }
+    input:hover {
+      opacity: 1; /* Fully shown on mouse-over */
+    }
+    input::-webkit-slider-thumb {
+      -webkit-appearance: none; /* Override default look */
+      appearance: none;
+      width: 10px; /* Set a specific slider handle width */
+      height: 10px; /* Slider handle height */
+      border-radius: 50%;
+      background: var(--secondary); /* Green background */
+      cursor: pointer; /* Cursor on hover */
+    }
+    input::-moz-range-thumb {
+      width: 15px; /* Set a specific slider handle width */
+      height: 15px; /* Slider handle height */
+      background: var(--primary); /* Green background */
+      cursor: pointer; /* Cursor on hover */
     }
   }
-  &__range:focus + div {
-    color: var(--primary);
-  }
+
   &__label {
     position: absolute;
     transition: var(--transition);

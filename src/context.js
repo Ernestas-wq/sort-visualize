@@ -49,12 +49,9 @@ const AppProvider = ({ children }) => {
 
   const changeSize = size => {
     let newSize = parseInt(size);
-    if (newSize > 90) {
-      newSize = 90;
-    } else if (newSize < 10) {
-      newSize = 10;
+    if (!isSorting) {
+      setArraySize(newSize);
     }
-    setArraySize(newSize);
   };
   const changeSpeed = speed => {
     setSpeed(speed);

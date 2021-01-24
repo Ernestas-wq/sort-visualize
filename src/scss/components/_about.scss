@@ -1,0 +1,36 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+  h1 {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 30px;
+    color: var(--primary);
+  }
+  &__container {
+    color: var(--white-main);
+    margin-top: 1rem;
+    p {
+      text-align: left;
+      letter-spacing: 0.1rem;
+      line-height: 1.25rem;
+      span {
+        font-weight: 700;
+        color: var(--primary);
+      }
+    }
+    li {
+      font-style: italic;
+    }
+    a {
+      text-transform: capitalize;
+      color: var(--white-main);
+      transition: var(--transition);
+    }
+    a:hover {
+      color: var(--primary);
+    }
+  }
+}

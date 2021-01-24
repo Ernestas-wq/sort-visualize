@@ -11,7 +11,7 @@ const randomInteger = (min, max) => {
 
 const Sort = () => {
   const [array, setArray] = useState([]);
-  const { animateSort, animateMergeSort, arraySize } = useGlobalContext();
+  const { animateSort, animateMergeSort, arraySize, isSorting } = useGlobalContext();
   useEffect(() => {
     resetArray();
   }, []);
@@ -57,6 +57,12 @@ const Sort = () => {
 
       <section className="sort">
         <div className="sort__container">
+          {isSorting && (
+            <div className="sort__spinner">
+              <div></div>
+              <p>Sorting...</p>
+            </div>
+          )}
           {array.map((value, index) => {
             return (
               <div key={index} className="sort__element" style={{ height: `${value}px` }}></div>
