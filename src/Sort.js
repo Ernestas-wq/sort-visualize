@@ -3,8 +3,10 @@ import { useGlobalContext } from './context';
 import SorterUI from './SorterUI';
 import { getMergeSortAnimations } from './algorythms/merge';
 import { getBubbleSortAnimations } from './algorythms/bubble';
+import { getInsertionSortAnimations } from './algorythms/insertion';
 import { getQuickSortAnimations, resetQuickSortAnimations } from './algorythms/quick';
 import { getHeapSortAnimations, resetHeapSortAnimations } from './algorythms/heap';
+
 const randomInteger = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
@@ -45,7 +47,10 @@ const Sort = () => {
     const animations = getHeapSortAnimations([...array]);
     animateSort(animations);
   };
-
+  const insertionSort = () => {
+    const animations = getInsertionSortAnimations([...array]);
+    animateSort(animations);
+  };
   return (
     <main>
       <SorterUI
@@ -53,6 +58,7 @@ const Sort = () => {
         heapSort={heapSort}
         bubbleSort={bubbleSort}
         quickSort={quickSort}
+        insertionSort={insertionSort}
       />
 
       <section className="sort">

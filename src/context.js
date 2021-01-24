@@ -25,7 +25,7 @@ const AppProvider = ({ children }) => {
       id: 0,
       name: 'algorythm',
       show: false,
-      options: ['bubble sort', 'merge sort', 'quick sort', 'heap sort'],
+      options: ['bubble sort', 'merge sort', 'quick sort', 'heap sort', 'insertion sort'],
     },
     {
       id: 1,

@@ -106,6 +106,9 @@
     top: 0;
     left: 0;
     z-index: 3;
+    li {
+      height: 15px;
+    }
   }
   &__option {
     text-align: left;

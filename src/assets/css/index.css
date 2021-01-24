@@ -737,6 +737,10 @@ main {
   z-index: 3;
 }
 
+.sorterUI__options li {
+  height: 15px;
+}
+
 .sorterUI__option {
   text-align: left;
   width: 100%;

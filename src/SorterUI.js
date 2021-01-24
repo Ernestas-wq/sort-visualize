@@ -4,7 +4,7 @@ import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io';
 import { MdErrorOutline } from 'react-icons/md';
 import { BsCheckBox } from 'react-icons/bs';
 
-const SorterUI = ({ mergeSort, heapSort, bubbleSort, quickSort }) => {
+const SorterUI = ({ mergeSort, heapSort, bubbleSort, quickSort, insertionSort }) => {
   const { changeSize, algorythm, speed, isSorting } = useGlobalContext();
 
   return (
@@ -60,6 +60,8 @@ const SorterUI = ({ mergeSort, heapSort, bubbleSort, quickSort }) => {
                 mergeSort();
               } else if (algorythm === 'quick sort') {
                 quickSort();
+              } else if (algorythm === 'insertion sort') {
+                insertionSort();
               }
             }
           }}
