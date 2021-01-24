@@ -35,7 +35,7 @@ const About = () => {
             modification.
           </p>
           <br /> <br />
-          <a href="https://en.wikipedia.org/wiki/Sorting_algorithm">
+          <a href="https://en.wikipedia.org/wiki/Sorting_algorithm" target="_blank">
             read more <SiWikimediacommons />
           </a>
           <br /> <br />

@@ -14,7 +14,9 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer__right">
-          <a href="https://github.com/Ernestas-wq/sort-visualize">Source Code</a>
+          <a href="https://github.com/Ernestas-wq/sort-visualize" target="_blank">
+            Source Code
+          </a>
           <AiFillGithub />
         </div>
       </div>

@@ -15,7 +15,7 @@ const Algorythms = () => {
               <article key={id}>
                 <h3>{name}</h3>
                 <p>{article}</p>
-                <a href={link}>
+                <a href={link} target="_blank">
                   read more <SiWikimediacommons />{' '}
                 </a>
               </article>
