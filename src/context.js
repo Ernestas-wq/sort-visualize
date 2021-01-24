@@ -1,6 +1,5 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useCallback } from 'react';
 const AppContext = React.createContext();
-const ANIMATION_SPEED_MS = 10;
 
 // This is the main color of the array bars.
 const PRIMARY_COLOR = '#8338ec';
@@ -20,6 +19,7 @@ const AppProvider = ({ children }) => {
   const [speed, setSpeed] = useState('');
   const [speedMS, setSpeedMS] = useState(0);
   const [isSorting, setIsSorting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState({ show: false, msg: '' });
   const [dropdowns, setDropdowns] = useState([
     {
       id: 0,
@@ -66,6 +66,13 @@ const AppProvider = ({ children }) => {
       setIsSorting(false);
     }, animations.length * speedMS);
   };
+
+  const changeErrorMessage = useCallback(
+    (show, msg) => {
+      setErrorMessage({ show, msg });
+    },
+    [errorMessage]
+  );
 
   const animateMergeSort = animations => {
     const arrayBars = document.getElementsByClassName('sort__element');
@@ -130,6 +137,8 @@ const AppProvider = ({ children }) => {
         changeSpeed,
         changeAlgorythm,
         isSorting,
+        errorMessage,
+        changeErrorMessage,
       }}
     >
       {children}

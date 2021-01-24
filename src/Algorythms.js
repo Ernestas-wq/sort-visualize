@@ -3,7 +3,6 @@ import { SiWikimediacommons } from 'react-icons/si';
 import algorythms from './assets/data/algorythmInfo';
 
 const Algorythms = () => {
-  console.log(algorythms);
   return (
     <main>
       <section className="algorythms">
@@ -22,21 +21,6 @@ const Algorythms = () => {
               </article>
             );
           })}
-
-          {/* <article>
-            <h3>Bubble Sort</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sit exercitationem
-              nisi labore saepe nulla qui recusandae maxime voluptatibus repudiandae. Perspiciatis
-              rem itaque fugit deleniti nesciunt consequuntur reprehenderit sit sint.Iure doloribus,
-              quos tempora perferendis reiciendis sit quod autem temporibus repellendus? Eos unde,
-              temporibus animi porro, optio ullam labore neque quo culpa maiores cum vitae ex id
-              explicabo numquam. Commodi.
-            </p>
-            <a href="">
-              Read More <SiWikimediacommons />
-            </a>
-          </article> */}
         </div>
       </section>
     </main>

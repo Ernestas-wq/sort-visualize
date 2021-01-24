@@ -1,11 +1,24 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useGlobalContext } from './context';
 import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io';
 import { MdErrorOutline } from 'react-icons/md';
 import { BsCheckBox } from 'react-icons/bs';
 
 const SorterUI = ({ mergeSort, heapSort, bubbleSort, quickSort, insertionSort }) => {
-  const { changeSize, algorythm, speed, isSorting } = useGlobalContext();
+  const {
+    changeSize,
+    algorythm,
+    speed,
+    isSorting,
+    changeErrorMessage,
+    errorMessage,
+  } = useGlobalContext();
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      changeErrorMessage(false, '');
+    }, 2000);
+    return () => clearTimeout(timeout);
+  }, [changeErrorMessage]);
 
   return (
     <>
@@ -23,6 +36,11 @@ const SorterUI = ({ mergeSort, heapSort, bubbleSort, quickSort, insertionSort })
             </div>
           </div>
           <Dropdown />
+          {errorMessage.show && (
+            <div className="sorterUI__error-message">
+              <p>{errorMessage.msg}</p>
+            </div>
+          )}
           <div className="sorterUI__notifications">
             <ul>
               <li>
@@ -46,7 +64,6 @@ const SorterUI = ({ mergeSort, heapSort, bubbleSort, quickSort, insertionSort })
         </div>
 
         <button
-          // className="sorterUI__start sorterUI__start--inactive"
           className={`${
             isSorting ? 'sorterUI__start sorterUI__start--inactive' : 'sorterUI__start'
           }`}
@@ -63,6 +80,9 @@ const SorterUI = ({ mergeSort, heapSort, bubbleSort, quickSort, insertionSort })
               } else if (algorythm === 'insertion sort') {
                 insertionSort();
               }
+            }
+            if (!speed || !algorythm) {
+              changeErrorMessage(true, 'Please Select Values');
             }
           }}
         >

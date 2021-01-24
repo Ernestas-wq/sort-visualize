@@ -16,7 +16,7 @@
   }
   &__dropdown {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     justify-content: space-evenly;
     height: 140px;
     overflow: hidden;
@@ -25,6 +25,17 @@
     p {
       color: var(--white-main);
       text-transform: capitalize;
+    }
+  }
+  &__error-message {
+    position: absolute;
+    border-radius: var(--radius);
+    background: var(--white-main);
+    padding: 0px 10px;
+    top: 30px;
+    p {
+      color: var(--red);
+      font-size: 0.75rem;
     }
   }
   &__notifications {
@@ -74,7 +85,7 @@
   &__start {
     position: absolute;
     bottom: -27px;
-    left: 70%;
+    left: 45%;
     background: none;
     outline: none;
     border: 1px solid var(--primary);
@@ -85,7 +96,6 @@
     transition: var(--transition);
     @include responsive-sm() {
       bottom: -10px;
-      left: 45%;
       font-size: 0.9rem;
     }
     &--inactive {

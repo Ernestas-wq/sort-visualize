@@ -3,7 +3,6 @@ import { VscThreeBars } from 'react-icons/vsc';
 import { useGlobalContext } from './context';
 import { AiOutlineClose } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-// import { ReactComponent as CaretIcon } from './assets/icons/caret.svg';
 
 import logo from './assets/icons/logo.png';
 const Newnb = () => {

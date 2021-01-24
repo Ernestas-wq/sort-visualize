@@ -616,7 +616,7 @@ main {
   display: flex;
   -webkit-box-align: start;
       -ms-flex-align: start;
-          align-items: start;
+          align-items: flex-start;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
@@ -629,6 +629,19 @@ main {
 .sorterUI__dropdown p {
   color: var(--white-main);
   text-transform: capitalize;
+}
+
+.sorterUI__error-message {
+  position: absolute;
+  border-radius: var(--radius);
+  background: var(--white-main);
+  padding: 0px 10px;
+  top: 30px;
+}
+
+.sorterUI__error-message p {
+  color: var(--red);
+  font-size: 0.75rem;
 }
 
 .sorterUI__notifications {
@@ -694,7 +707,7 @@ main {
 .sorterUI__start {
   position: absolute;
   bottom: -27px;
-  left: 70%;
+  left: 45%;
   background: none;
   outline: none;
   border: 1px solid var(--primary);
@@ -709,7 +722,6 @@ main {
 @media screen and (min-width: 768px) {
   .sorterUI__start {
     bottom: -10px;
-    left: 45%;
     font-size: 0.9rem;
   }
 }
