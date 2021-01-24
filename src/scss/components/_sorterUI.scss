@@ -82,19 +82,31 @@
     padding-top: 3px;
     z-index: 4;
   }
+  &__reset {
+    position: absolute;
+    bottom: -27px;
+    right: 0;
+    @include ui-button();
+    @include responsive-sm() {
+      bottom: -10px;
+      font-size: 0.9rem;
+    }
+    &--inactive {
+      color: var(--red);
+      background: #474a4d;
+    }
+  }
+  &__reset:hover {
+    background: var(--white-main);
+    color: var(--primary);
+  }
   &__start {
     position: absolute;
     bottom: -27px;
-    left: 45%;
-    background: none;
-    outline: none;
-    border: 1px solid var(--primary);
-    padding: 3px 15px;
-    border-radius: 20px;
-    font-size: 0.5rem;
-    color: var(--white-main);
-    transition: var(--transition);
+    left: 0;
+    @include ui-button();
     @include responsive-sm() {
+      left: 45%;
       bottom: -10px;
       font-size: 0.9rem;
     }

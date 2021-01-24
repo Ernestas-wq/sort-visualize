@@ -59,6 +59,7 @@ const Sort = () => {
         bubbleSort={bubbleSort}
         quickSort={quickSort}
         insertionSort={insertionSort}
+        resetArray={resetArray}
       />
 
       <section className="sort">

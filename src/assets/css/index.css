@@ -136,9 +136,6 @@ img {
   height: auto;
 }
 
-/*
-Responsive
-*/
 :root {
   --black-main: #242526;
   --white-main: #dadce1;
@@ -198,6 +195,9 @@ main {
   min-height: calc(100vh - 50px - var(--nav-size));
 }
 
+/*
+Responsive
+*/
 .navbar {
   height: var(--nav-size);
   background: #000000;
@@ -704,16 +704,48 @@ main {
   z-index: 4;
 }
 
-.sorterUI__start {
+.sorterUI__reset {
   position: absolute;
   bottom: -27px;
-  left: 45%;
-  background: none;
-  outline: none;
+  right: 0;
   border: 1px solid var(--primary);
   padding: 3px 15px;
   border-radius: 20px;
   font-size: 0.5rem;
+  background: none;
+  outline: none;
+  color: var(--white-main);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+@media screen and (min-width: 768px) {
+  .sorterUI__reset {
+    bottom: -10px;
+    font-size: 0.9rem;
+  }
+}
+
+.sorterUI__reset--inactive {
+  color: var(--red);
+  background: #474a4d;
+}
+
+.sorterUI__reset:hover {
+  background: var(--white-main);
+  color: var(--primary);
+}
+
+.sorterUI__start {
+  position: absolute;
+  bottom: -27px;
+  left: 0;
+  border: 1px solid var(--primary);
+  padding: 3px 15px;
+  border-radius: 20px;
+  font-size: 0.5rem;
+  background: none;
+  outline: none;
   color: var(--white-main);
   -webkit-transition: var(--transition);
   transition: var(--transition);
@@ -721,6 +753,7 @@ main {
 
 @media screen and (min-width: 768px) {
   .sorterUI__start {
+    left: 45%;
     bottom: -10px;
     font-size: 0.9rem;
   }

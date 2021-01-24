@@ -4,7 +4,7 @@ import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io';
 import { MdErrorOutline } from 'react-icons/md';
 import { BsCheckBox } from 'react-icons/bs';
 
-const SorterUI = ({ mergeSort, heapSort, bubbleSort, quickSort, insertionSort }) => {
+const SorterUI = ({ mergeSort, heapSort, bubbleSort, quickSort, insertionSort, resetArray }) => {
   const {
     changeSize,
     algorythm,
@@ -62,7 +62,18 @@ const SorterUI = ({ mergeSort, heapSort, bubbleSort, quickSort, insertionSort })
             </ul>
           </div>
         </div>
-
+        <button
+          className={`${
+            isSorting ? 'sorterUI__reset sorterUI__reset--inactive' : 'sorterUI__reset'
+          }`}
+          onClick={() => {
+            if (!isSorting) {
+              resetArray();
+            }
+          }}
+        >
+          Reset Array
+        </button>
         <button
           className={`${
             isSorting ? 'sorterUI__start sorterUI__start--inactive' : 'sorterUI__start'
