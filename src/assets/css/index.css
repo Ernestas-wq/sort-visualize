@@ -265,6 +265,7 @@ button {
   transition: var(--transition);
   padding-top: 1.5rem;
   top: var(--nav-size);
+  z-index: 4;
   left: 0;
   height: calc(100vh - 40px);
 }
@@ -521,7 +522,7 @@ button {
   width: 80%;
   margin: 1rem auto;
   position: relative;
-  height: 70px;
+  height: 90px;
 }
 
 .sorterUI__menu {
@@ -534,9 +535,21 @@ button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+@media screen and (min-width: 768px) {
+  .sorterUI__menu {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
 }
 
 .sorterUI__dropdown {
@@ -558,6 +571,18 @@ button {
   text-transform: capitalize;
 }
 
+.sorterUI__notifications {
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .sorterUI__notifications {
+    position: static;
+  }
+}
+
 .sorterUI__notifications li {
   margin-bottom: 0.25rem;
   color: var(--primary-2);
@@ -567,6 +592,7 @@ button {
 .sorterUI__notifications li span {
   padding-left: 10px;
   font-size: 0.65rem;
+  text-transform: capitalize;
   color: var(--green);
 }
 
@@ -589,7 +615,31 @@ button {
   background: transparent;
   color: var(--primary);
   padding-top: 3px;
-  z-index: 2;
+  z-index: 4;
+}
+
+.sorterUI__start {
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+  background: none;
+  outline: none;
+  border: 1px solid var(--primary);
+  padding: 3px 15px;
+  border-radius: 20px;
+  color: var(--white-main);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.sorterUI__start--inactive {
+  color: var(--red);
+  background: #474a4d;
+}
+
+.sorterUI__start:hover {
+  background: var(--white-main);
+  color: var(--primary);
 }
 
 .sorterUI__options {
@@ -602,7 +652,7 @@ button {
   opacity: 0;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 3;
 }
 
 .sorterUI__option {
@@ -632,9 +682,18 @@ button {
   position: absolute;
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
-  width: 80px;
+  width: 60px;
   height: 5px;
-  left: 0;
+  top: 25px;
+  right: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .sorterUI__range {
+    width: 80px;
+    height: 5px;
+    left: 0;
+  }
 }
 
 .sorterUI__range:focus + div {
@@ -645,11 +704,19 @@ button {
   position: absolute;
   -webkit-transition: var(--transition);
   transition: var(--transition);
-  left: -19px;
-  top: 28px;
+  right: 10px;
+  top: 10px;
   font-size: 0.75rem;
+  width: 100px;
   color: var(--white-main);
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
+}
+
+@media screen and (min-width: 768px) {
+  .sorterUI__label {
+    right: 90%;
+    top: 10px;
+  }
 }
 /*# sourceMappingURL=index.css.map */

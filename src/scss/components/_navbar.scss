@@ -43,6 +43,7 @@
     transition: var(--transition);
     padding-top: 1.5rem;
     top: var(--nav-size);
+    z-index: 4;
     left: 0;
     height: calc(100vh - 40px);
 

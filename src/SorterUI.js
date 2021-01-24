@@ -3,8 +3,10 @@ import { useGlobalContext } from './context';
 import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io';
 import { MdErrorOutline } from 'react-icons/md';
 import { BsCheckBox } from 'react-icons/bs';
-const SorterUI = () => {
-  const { changeSize, algorythm, speed } = useGlobalContext();
+
+const SorterUI = ({ mergeSort, heapSort, bubbleSort, quickSort }) => {
+  const { changeSize, algorythm, speed, isSorting } = useGlobalContext();
+
   return (
     <>
       <section className="sorterUI">
@@ -14,7 +16,7 @@ const SorterUI = () => {
             <ul>
               <li>
                 Algorythm: <span>{algorythm}</span>
-                {algorythm ? (
+                {algorythm && !isSorting ? (
                   <BsCheckBox className="sorterUI__success" />
                 ) : (
                   <MdErrorOutline className="sorterUI__error" />
@@ -22,7 +24,7 @@ const SorterUI = () => {
               </li>
               <li>
                 Speed: <span>{speed}</span>
-                {speed ? (
+                {speed && !isSorting ? (
                   <BsCheckBox className="sorterUI__success" />
                 ) : (
                   <MdErrorOutline className="sorterUI__error" />
@@ -41,18 +43,42 @@ const SorterUI = () => {
         <div className="sorterUI__label">
           <label htmlFor="range">Adjust array</label>
         </div>
+        <button
+          // className="sorterUI__start sorterUI__start--inactive"
+          className={`${
+            isSorting ? 'sorterUI__start sorterUI__start--inactive' : 'sorterUI__start'
+          }`}
+          onClick={() => {
+            if (algorythm && speed && !isSorting) {
+              if (algorythm === 'bubble sort') {
+                bubbleSort();
+              } else if (algorythm === 'heap sort') {
+                heapSort();
+              } else if (algorythm === 'merge sort') {
+                mergeSort();
+              } else if (algorythm === 'quick sort') {
+                quickSort();
+              }
+            }
+          }}
+        >
+          Sort it
+        </button>
       </section>
     </>
   );
 };
 
 const Dropdown = () => {
-  const { dropdowns, toggleDropdown } = useGlobalContext();
+  const { dropdowns, toggleDropdown, changeSpeed, changeAlgorythm } = useGlobalContext();
+
+  const handleChange = name => {
+    return name;
+  };
 
   return (
     <>
       {dropdowns.map((dropdown, index) => {
-        console.log('hello');
         const { name, options, show, id } = dropdown;
         return (
           <div className="sorterUI__dropdown" key={index} id={index}>
@@ -70,7 +96,12 @@ const Dropdown = () => {
                     <button
                       className="sorterUI__option"
                       onClick={e => {
-                        console.log(e.target.textContent);
+                        if (handleChange(name) === 'algorythm') {
+                          changeAlgorythm(e.target.textContent);
+                        } else if (handleChange(name) === 'speed') {
+                          changeSpeed(e.target.textContent);
+                        }
+                        toggleDropdown(id);
                       }}
                     >
                       {option}

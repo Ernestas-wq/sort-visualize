@@ -19,6 +19,12 @@ function pivot(arr, left = 0, right = arr.length - 1) {
 
     if (arr[i] < arr[left]) {
       swap(arr, i, ++shift);
+      animations.push({
+        indexes: [i, shift],
+        heights: [arr[shift], arr[i]],
+        swap: true,
+        revertColor: true,
+      });
     }
   }
   //Finally swapping the last element with the left

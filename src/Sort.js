@@ -30,45 +30,32 @@ const Sort = () => {
   };
 
   const mergeSort = () => {
-    const animations = getMergeSortAnimations(array);
-
+    const animations = getMergeSortAnimations([...array]);
     animateMergeSort(animations);
   };
   const bubbleSort = () => {
-    const animations = getBubbleSortAnimations(array);
+    const animations = getBubbleSortAnimations([...array]);
     animateSort(animations);
   };
   const quickSort = () => {
-    const animations = getQuickSortAnimations(array);
+    const animations = getQuickSortAnimations([...array]);
     animateSort(animations);
   };
   const heapSort = () => {
-    const animations = getHeapSortAnimations(array);
+    const animations = getHeapSortAnimations([...array]);
     animateSort(animations);
   };
 
   return (
     <main>
-      <SorterUI />
+      <SorterUI
+        mergeSort={mergeSort}
+        heapSort={heapSort}
+        bubbleSort={bubbleSort}
+        quickSort={quickSort}
+      />
 
       <section className="sort">
-        <div className="sort__buttons">
-          <button className="sort__button" onClick={() => resetArray()}>
-            Click me
-          </button>
-          <button className="sort__button" onClick={() => mergeSort()}>
-            Merge
-          </button>
-          <button className="sort__button" onClick={() => bubbleSort()}>
-            Bubble
-          </button>
-          <button className="sort__button" onClick={() => quickSort()}>
-            Quick
-          </button>
-          <button className="sort__button" onClick={() => heapSort()}>
-            Heapify
-          </button>
-        </div>
         <div className="sort__container">
           {array.map((value, index) => {
             return (
