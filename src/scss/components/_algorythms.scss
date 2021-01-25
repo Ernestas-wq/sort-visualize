@@ -17,16 +17,25 @@
       font-weight: 700;
       font-size: 1.5rem;
       color: var(--green);
+      @include responsive-lg() {
+        font-size: 1.75rem;
+      }
     }
     article p {
       font-size: 0.75rem;
       color: var(--white-main);
       margin-bottom: 0.5rem;
+      @include responsive-lg() {
+        font-size: 1.1rem;
+      }
     }
     article a {
       color: var(--primary);
       text-transform: capitalize;
       transition: var(--transition);
+      @include responsive-lg() {
+        font-size: 1rem;
+      }
     }
     article a:hover {
       color: var(--primary-2);

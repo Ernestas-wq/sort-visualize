@@ -1,26 +1,36 @@
 .navbar {
   height: var(--nav-size);
-  background: #000000; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #434343, #000000); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #434343,
-    #000000
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: #000000;
+  background: var(--black-main);
   padding: 0 1rem;
   border-bottom: var(--border);
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  transition: all ease 1s;
+  &__darkmode {
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--white-main);
+    transition: var(--transition);
+    @include responsive-lg() {
+      font-size: 1.25rem;
+    }
+  }
+  &__darkmode:hover {
+    color: var(--primary);
+  }
   &__left {
     @include align-center();
     h4 {
       margin-left: 0.5rem;
       color: var(--white-main);
+      @include responsive-lg() {
+        font-size: 1.25rem;
+      }
       span {
-        color: #8338ec;
+        color: var(--secondary);
       }
       font-family: 'Hachi Maru Pop', cursive, sans-serif;
     }
@@ -86,11 +96,11 @@
     @include responsive-sm() {
       color: var(--white-main);
     }
+    @include responsive-lg() {
+      font-size: 1.25rem;
+    }
   }
   &__open {
-    position: absolute;
-    top: 10px;
-    right: 10px;
     font-size: 1rem;
     color: var(--primary);
     background: transparent;

@@ -3,6 +3,7 @@
   margin: 1rem auto;
   position: relative;
   height: 90px;
+
   &__menu {
     display: flex;
     align-items: center;
@@ -25,6 +26,9 @@
     p {
       color: var(--white-main);
       text-transform: capitalize;
+      @include responsive-lg() {
+        font-size: 1.25rem;
+      }
     }
   }
   &__error-message {
@@ -33,9 +37,15 @@
     background: var(--white-main);
     padding: 0px 10px;
     top: 30px;
+    @include responsive-lg() {
+      top: 70px;
+    }
     p {
       color: var(--red);
       font-size: 0.75rem;
+      @include responsive-lg() {
+        font-size: 1.15rem;
+      }
     }
   }
   &__notifications {
@@ -53,6 +63,9 @@
       @include responsive-sm() {
         font-size: 0.75rem;
       }
+      @include responsive-lg() {
+        font-size: 1.25rem;
+      }
       span {
         padding-left: 10px;
         font-size: 0.4rem;
@@ -60,6 +73,9 @@
         color: var(--green);
         @include responsive-sm() {
           font-size: 0.65rem;
+        }
+        @include responsive-lg() {
+          font-size: 1rem;
         }
       }
       svg {
@@ -81,6 +97,10 @@
     color: var(--primary);
     padding-top: 3px;
     z-index: 4;
+    @include responsive-lg() {
+      padding-top: 5px;
+      font-size: 1.25rem;
+    }
   }
   &__reset {
     position: absolute;
@@ -90,6 +110,14 @@
     @include responsive-sm() {
       bottom: -10px;
       font-size: 0.9rem;
+    }
+    @include responsive-lg() {
+      right: 0;
+      bottom: 50px;
+      font-size: 1.25rem;
+    }
+    @include responsive-xlg() {
+      right: 100px;
     }
     &--inactive {
       color: var(--red);
@@ -109,6 +137,10 @@
       left: 45%;
       bottom: -10px;
       font-size: 0.9rem;
+    }
+    @include responsive-lg() {
+      bottom: 50px;
+      font-size: 1.25rem;
     }
     &--inactive {
       color: var(--red);
@@ -131,6 +163,9 @@
     li {
       height: 15px;
     }
+    li:nth-child(1) {
+      margin-top: 5px;
+    }
   }
   &__option {
     text-align: left;
@@ -145,6 +180,9 @@
     color: var(--primary);
     z-index: 3;
     transition: var(--transition);
+    @include responsive-lg() {
+      font-size: 1rem;
+    }
   }
   &__option:hover {
     background: var(--white-main);
@@ -158,6 +196,9 @@
     bottom: 0;
     right: 0;
     z-index: 5;
+    @include responsive-lg() {
+      bottom: -5px;
+    }
     div {
       width: 100%;
       display: flex;
@@ -177,6 +218,10 @@
       @include responsive-sm() {
         width: 70%;
       }
+      @include responsive-lg() {
+        width: 100%;
+        height: 10px;
+      }
     }
     input:hover {
       opacity: 1; /* Fully shown on mouse-over */
@@ -189,27 +234,17 @@
       border-radius: 50%;
       background: var(--secondary); /* Green background */
       cursor: pointer; /* Cursor on hover */
+      @include responsive-lg() {
+        border-radius: 0;
+        width: 20px;
+        height: 20px;
+      }
     }
     input::-moz-range-thumb {
       width: 15px; /* Set a specific slider handle width */
       height: 15px; /* Slider handle height */
       background: var(--primary); /* Green background */
       cursor: pointer; /* Cursor on hover */
-    }
-  }
-
-  &__label {
-    position: absolute;
-    transition: var(--transition);
-    right: 10px;
-    top: 10px;
-    font-size: 0.75rem;
-    width: 100px;
-    color: var(--white-main);
-    transform: rotate(-90deg);
-    @include responsive-sm() {
-      right: 90%;
-      top: 10px;
     }
   }
 }

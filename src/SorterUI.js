@@ -124,7 +124,7 @@ const Dropdown = () => {
             <div
               className="sorterUI__options"
               style={{
-                transform: `${show ? 'translateY(25%)' : 'translateY(-100%)'}`,
+                transform: `${show ? 'translateY(30%)' : 'translateY(-100%)'}`,
                 opacity: `${show ? '1' : '0'}`,
               }}
             >

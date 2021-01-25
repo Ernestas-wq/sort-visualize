@@ -12,11 +12,11 @@
     min-height: 380px;
     margin: 1.5rem auto;
     border-radius: var(--radius);
-    background-size: 100%;
+    transition: all ease 1s;
   }
   &__element {
     width: 1%;
-    background: var(--secondary);
+    background: var(--array-item);
     margin-right: 3px;
   }
   &__buttons {
@@ -43,7 +43,9 @@
     top: 20px;
     right: 5px;
     @include align-center();
-
+    @include responsive-lg() {
+      top: 40px;
+    }
     div {
       border: 2px solid var(--green); /* Light grey */
       border-top: 2px solid var(--primary); /* Blue */
@@ -51,11 +53,20 @@
       width: 16px;
       height: 16px;
       animation: spin 2s linear infinite;
+      @include responsive-lg() {
+        border: 3px solid var(--green);
+        border-top: solid 2px var(--primary);
+        width: 25px;
+        height: 25px;
+      }
     }
     p {
       margin-left: 4px;
       color: var(--secondary);
       font-size: 0.625rem;
+      @include responsive-lg() {
+        font-size: 1rem;
+      }
     }
   }
 }

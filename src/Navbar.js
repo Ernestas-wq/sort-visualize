@@ -6,7 +6,13 @@ import { Link } from 'react-router-dom';
 
 import logo from './assets/icons/logo.png';
 const Newnb = () => {
-  const { isSidebarOpen, closeSidebar, openSidebar } = useGlobalContext();
+  const {
+    isSidebarOpen,
+    closeSidebar,
+    openSidebar,
+    isDarkMode,
+    toggleDarkMode,
+  } = useGlobalContext();
 
   const linksContainerRef = useRef(null);
   useEffect(() => {
@@ -26,6 +32,14 @@ const Newnb = () => {
             <span>S</span>ort <span>V</span>isualizer
           </h4>
         </div>
+        <button
+          className="navbar__darkmode"
+          onClick={() => {
+            toggleDarkMode();
+          }}
+        >
+          {isDarkMode ? 'Day Mode' : 'Night Mode'}
+        </button>
         <button className="navbar__open" onClick={openSidebar}>
           <VscThreeBars />
         </button>

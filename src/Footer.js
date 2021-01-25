@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './assets/icons/logo.png';
 import { AiFillGithub } from 'react-icons/ai';
+
 const Footer = () => {
   return (
     <footer>

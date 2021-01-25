@@ -1,9 +1,11 @@
 :root {
-  --black-main: #242526;
+  --black-main: linear-gradient(to right, #434343, #000000);
+  --black-main-reverse: linear-gradient(to right, #000000, #434343);
   --white-main: #dadce1;
   --primary: #4895ef;
   --secondary: #8338ec;
   --primary-2: #118ab2;
+  --array-item: #ef476f;
   --red: #e63946;
   --green: #06d6a0;
   --nav-size: 40px;
@@ -22,10 +24,8 @@
 }
 body {
   font-family: 'Poppins', sans-serif;
+  background: #000000;
   background: var(--black-main);
-  background: #000000; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #434343, #000000);
-  background: linear-gradient(to right, #434343, #000000);
   line-height: 1.5;
   font-size: 0.875rem;
   image-rendering: pixelated;
@@ -41,7 +41,9 @@ a {
 }
 button {
   cursor: pointer;
+  font-family: 'Poppins', sans-serif;
 }
 main {
   min-height: calc(100vh - 50px - var(--nav-size));
+  transition: var(--transition);
 }

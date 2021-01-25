@@ -1,15 +1,14 @@
 import React, { useState, useContext, useCallback } from 'react';
+import { darkmode } from './utils/darkmode';
 const AppContext = React.createContext();
-
-// This is the main color of the array bars.
-const PRIMARY_COLOR = '#8338ec';
-
-// This is the color of array bars that are being compared throughout the animations.
-const SECONDARY_COLOR = '#06d6a0';
 const speeds = {
   slow: 90,
   medium: 45,
   fast: 10,
+};
+const colorsPallet = {
+  primary: '#ef476f',
+  secondary: '#06d6a0',
 };
 
 const AppProvider = ({ children }) => {
@@ -20,6 +19,8 @@ const AppProvider = ({ children }) => {
   const [speedMS, setSpeedMS] = useState(0);
   const [isSorting, setIsSorting] = useState(false);
   const [errorMessage, setErrorMessage] = useState({ show: false, msg: '' });
+  const [colors, setColors] = useState(colorsPallet);
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const [dropdowns, setDropdowns] = useState([
     {
       id: 0,
@@ -74,6 +75,10 @@ const AppProvider = ({ children }) => {
     [errorMessage]
   );
 
+  const toggleDarkMode = () => {
+    darkmode();
+    setIsDarkMode(!isDarkMode);
+  };
   const animateMergeSort = animations => {
     const arrayBars = document.getElementsByClassName('sort__element');
     toggleSorterState(animations);
@@ -83,7 +88,7 @@ const AppProvider = ({ children }) => {
         const [barOneIdx, barTwoIdx] = animations[i];
         const barOneStyle = arrayBars[barOneIdx].style;
         const barTwoStyle = arrayBars[barTwoIdx].style;
-        const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
+        const color = i % 3 === 0 ? colors.secondary : colors.primary;
         setTimeout(() => {
           barOneStyle.backgroundColor = color;
           barTwoStyle.backgroundColor = color;
@@ -105,7 +110,7 @@ const AppProvider = ({ children }) => {
       const isSwapping = animations[i]['swap'];
       const [barOneIdx, barTwoIdx] = animations[i]['indexes'];
       const revertColor = animations[i]['revertColor'];
-      const color = revertColor ? PRIMARY_COLOR : SECONDARY_COLOR;
+      const color = revertColor ? colors.primary : colors.secondary;
       setTimeout(() => {
         arrayBars[barOneIdx].style.backgroundColor = color;
         arrayBars[barTwoIdx].style.backgroundColor = color;
@@ -139,6 +144,8 @@ const AppProvider = ({ children }) => {
         isSorting,
         errorMessage,
         changeErrorMessage,
+        isDarkMode,
+        toggleDarkMode,
       }}
     >
       {children}

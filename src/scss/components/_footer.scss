@@ -1,30 +1,44 @@
 .footer {
   height: 50px;
   background: #0f0c29;
-  background: #000000;
-  background: -webkit-linear-gradient(to right, #000000, #434343);
-  background: linear-gradient(to right, #000000, #434343);
+  background: var(--black-main-reverse);
   padding: 0 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-top: var(--border);
+  transition: all ease 1s;
+
   &__left {
     width: 40%;
     display: flex;
+
     flex-direction: column;
+    @include responsive-lg() {
+      flex-direction: row;
+      align-items: center;
+    }
   }
 
   &__logo {
     width: 20px;
     height: 20px;
+    @include responsive-lg() {
+      height: 30px;
+      width: 30px;
+    }
   }
   &__title {
     p {
       color: var(--white-main);
       font-size: 0.5rem;
+      @include responsive-lg() {
+        font-size: 1rem;
+        margin-left: 15px;
+      }
     }
     span {
-      color: #8338ec;
+      color: var(--secondary);
     }
     font-family: 'Hachi Maru Pop', cursive, sans-serif;
   }
@@ -33,6 +47,9 @@
       font-size: 0.65rem;
       padding-bottom: 5px;
       transition: var(--transition);
+      @include responsive-lg() {
+        font-size: 1.1rem;
+      }
     }
     a:hover {
       color: var(--primary);
@@ -41,6 +58,9 @@
       color: var(--primary);
       transform: translateY(2px);
       margin-left: 4px;
+      @include responsive-lg() {
+        font-size: 1.115rem;
+      }
     }
   }
 }
