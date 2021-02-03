@@ -1129,14 +1129,15 @@ Responsive
 }
 
 .algorythms__container article p {
-  font-size: 0.75rem;
+  font-size: 1.2rem;
   color: var(--white-main);
   margin-bottom: 0.5rem;
+  line-height: 1.5rem;
 }
 
 @media screen and (min-width: 1024px) {
   .algorythms__container article p {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
   }
 }
 
