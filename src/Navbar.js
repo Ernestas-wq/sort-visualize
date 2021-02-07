@@ -62,6 +62,15 @@ const Newnb = () => {
               Algorythms
             </Link>
           </li>
+          <li className="navbar__item">
+            <a
+              className="navbar__link"
+              href="https://ernestas-portfolio.netlify.app/"
+              target="_blank"
+            >
+              Portfolio
+            </a>
+          </li>
         </ul>
       </nav>
     </>
